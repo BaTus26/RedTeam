@@ -133,14 +133,9 @@ Learning by doing is the main objective.
 Example folders inside this repository may include:
 
 ```
-recon/
-enumeration/
-privilege-escalation/
-active-directory/
-post-exploitation/
-tools/
-cheatsheets/
-notes/
+Web Sercurity/
+System/
+Pentest/
 ```
 
 Each folder contains practical commands, notes, and experiments.
@@ -156,25 +151,5 @@ This repository is created to:
 * keep personal security notes organized
 * help other beginners learn faster
 * build a long-term cybersecurity knowledge base
-
----
-
-# ⚠️ Disclaimer
-
-All content in this repository is provided for:
-
-* educational purposes
-* cybersecurity training
-* ethical hacking practice
-
-Do NOT use these techniques on systems without proper authorization.
-
----
-
-# ⭐ Support
-
-If this repository helps you during your cybersecurity learning journey:
-
-Consider giving it a star ⭐
 
 Thanks for visiting this project.
