@@ -1,4 +1,4 @@
-# Root-Me Write-up: SQL Injection - Authentication (SQLite)**
+# Root-Me Write-up: SQL Injection - Authentication (SQLite)
 
 ### Thông tin Challenge
 - **Platform**: Root-Me  
