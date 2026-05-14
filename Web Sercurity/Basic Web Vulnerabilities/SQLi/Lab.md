@@ -17,6 +17,8 @@
 → Nhận lỗi:
 > Warning: SQLite3::query(): Unable to prepare statement: 1, unrecognized token: "'''" ...
 
+![](../../../img/Pisture1.png)
+
 **Bypass lỗi**: Thêm comment `--`  
 → Lỗi biến mất, xác nhận có thể khai thác SQLi.
 
