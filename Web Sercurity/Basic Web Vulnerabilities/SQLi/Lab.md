@@ -10,12 +10,6 @@
 
 ### Khai thác ban đầu
 
-Khi kiểm tra source code, thấy phần xử lý input username/password có vấn đề:
-- Giá trị được gán không đúng (username và password cùng gán vào biến `name`).
-- Không có tài khoản nào thỏa mãn điều kiện đăng nhập mặc định.
-
-Phần contents của trang có tham số trên URL là vị trí dễ bị tấn công nhất.
-
 **Test payload đầu tiên**:
 ```
 '
