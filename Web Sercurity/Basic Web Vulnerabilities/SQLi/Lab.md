@@ -1,6 +1,6 @@
-** Root-Me Write-up: SQL Injection - Authentication (SQLite)**
+# Root-Me Write-up: SQL Injection - Authentication (SQLite)**
 
-### 📋 Thông tin Challenge
+### Thông tin Challenge
 - **Platform**: Root-Me  
 - **Challenge**: SQL Injection - Authentication  
 - **Database**: SQLite  
@@ -8,7 +8,7 @@
 
 ---
 
-### 🔍 Khai thác ban đầu
+### Khai thác ban đầu
 
 Khi kiểm tra source code, thấy phần xử lý input username/password có vấn đề:
 - Giá trị được gán không đúng (username và password cùng gán vào biến `name`).
@@ -28,19 +28,18 @@ Phần contents của trang có tham số trên URL là vị trí dễ bị tấ
 
 ---
 
-### 📊 Xác định số cột
+### Xác định số cột
 
 Sử dụng `ORDER BY` để tìm số cột của bảng:
 
 - `ORDER BY 1`, `ORDER BY 2` → OK  
-- `ORDER BY 3` → OK  
-- `ORDER BY 4` → Lỗi
+- `ORDER BY 3` → Lỗi
 
-**Kết luận**: Bảng đang query có **3 cột**.
+**Kết luận**: Bảng đang query có **2 cột**.
 
 ---
 
-### 🔎 Khám phá Database (SQLite)
+### Khám phá Database (SQLite)
 
 Payload lấy danh sách bảng:
 
@@ -64,9 +63,9 @@ CREATE TABLE users(username TEXT, password TEXT, Year INTEGER)
 
 ---
 
-### 💉 Dump dữ liệu
+### Dump dữ liệu
 
-**Lấy toàn bộ username & password**:
+**Lấy thông tin username**:
 
 ```sql
 ' UNION SELECT username, password FROM users;--
@@ -74,7 +73,6 @@ CREATE TABLE users(username TEXT, password TEXT, Year INTEGER)
 
 Kết quả:
 - Username: `admin`
-- Password ban đầu trả về: `R78gsyd34dzf` (không đúng khi login)
 
 **Lọc chính xác theo admin**:
 
@@ -86,7 +84,7 @@ Kết quả:
 
 ---
 
-### ✅ Kết quả
+### Kết quả
 
 - **Username**: `admin`
 - **Password**: `t0_W34k!$`
@@ -95,7 +93,7 @@ Kết quả:
 
 ---
 
-### 📌 Kỹ thuật đã sử dụng
+### Kỹ thuật đã sử dụng
 
 - Error-based SQL Injection
 - UNION-based SQL Injection
@@ -106,18 +104,11 @@ Kết quả:
 
 ---
 
-### 🛡️ Khuyến nghị bảo mật
+### Các lab liên quan
 
-- Sử dụng **Prepared Statements** / Parameterized Queries.
-- Không nối chuỗi trực tiếp vào câu lệnh SQL.
-- Ẩn thông báo lỗi chi tiết ở môi trường production.
-- Sử dụng ORM hoặc framework có cơ chế chống SQLi tốt (ví dụ: PDO với bindParam).
-
----
-
-**Write-up by**: Tú  
-**Date**: May 2026
-
----
-
-Bạn có thể copy nội dung Markdown trên để đăng lên GitHub. Nếu muốn thêm ảnh minh họa (screenshot payload, lỗi, kết quả), mình có thể bổ sung phần **Screenshots** cho bạn.
+- SQL injection - String
+- SQL injection - Numeric
+- SQL injection - Authentication - GBK
+- SQL injection - Error
+- SQL injection - Blind
+- SQL injection - Filter bypass
