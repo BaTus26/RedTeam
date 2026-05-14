@@ -75,6 +75,8 @@ CREATE TABLE users(username TEXT, password TEXT, Year INTEGER)
 ' UNION SELECT username, password FROM users;--
 ```
 
+![](../../../img/Pisture7.png)
+
 Kết quả:
 - Username: `admin`
 
